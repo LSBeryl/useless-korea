@@ -57,9 +57,14 @@ const Wrapper = styled.div`
     font-style: normal;
   }
 
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+  height: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: center;
   gap: 2rem;
 
   &,
@@ -89,7 +94,16 @@ const ChangeColor = styled.div`
   }
 `;
 
-const MsgAni = keyframes`
+const PCMsgAni = keyframes`
+  0% {
+    right: -50vw;
+  }
+  100% {
+    right: 100vw;
+  }
+`;
+
+const PhoneMsgAni = keyframes`
   0% {
     transform: translateX(80%);
   }
@@ -108,13 +122,18 @@ const Msg = styled.div`
   }
   font-family: "ChosunGs";
   position: absolute;
+  /* left: 0; */
   top: 20vh;
   line-height: 1.3rem;
-  animation: ${MsgAni} 10s linear 0s infinite forwards;
   white-space: nowrap;
   color: #aaa;
+  animation: ${PCMsgAni} 20s linear 0s infinite forwards;
   &::before {
     content: "개발자의 말 : ";
+  }
+
+  @media (max-width: 1024px) {
+    animation: ${PhoneMsgAni} 10s linear 0s infinite forwards;
   }
 `;
 
@@ -215,15 +234,11 @@ const Button = styled.div`
 `;
 
 const MovingPepe = styled.div`
-  width: 100vw;
-  height: 100vh;
   position: absolute;
   top: 0;
   &::before {
     content: "";
     position: fixed;
-    width: 100%;
-    height: 100%;
     left: 1rem;
     bottom: 5rem;
     background: url("/moving_pepe.gif");
