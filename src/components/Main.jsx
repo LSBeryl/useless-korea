@@ -158,7 +158,7 @@ const Button = styled.div`
   background: linear-gradient(180deg, ${getAllColor()});
   background-size: 200% 200%;
 
-  text-shadow: 0px 0px 5px ${() => theme.primary[800]};
+  text-shadow: 0px 0px 10px ${() => theme.primary[900]};
   border-radius: 1rem;
   padding: 1rem 5vw;
   color: ${() => theme.primary[100]};
