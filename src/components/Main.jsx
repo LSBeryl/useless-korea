@@ -1,6 +1,7 @@
 import styled, { css, keyframes } from "styled-components";
 import theme from "../style/theme";
 import sites from "../data/sites";
+import msg from "../data/devMsg";
 
 function getAllColor() {
   let result = "";
@@ -31,6 +32,7 @@ export default function Main() {
       >
         색 바꾸기
       </ChangeColor>
+      <Msg>{msg}</Msg>
       <Title>
         <div>쓸모없는</div>
         <div>사이트</div>
@@ -84,6 +86,35 @@ const ChangeColor = styled.div`
 
   &:hover {
     background: #333;
+  }
+`;
+
+const MsgAni = keyframes`
+  0% {
+    transform: translateX(80%);
+  }
+  100% {
+    transform: translateX(-80%);
+  }
+`;
+
+const Msg = styled.div`
+  @font-face {
+    font-family: "ChosunGs";
+    src: url("https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_20-04@1.0/ChosunGs.woff")
+      format("woff");
+    font-weight: normal;
+    font-style: normal;
+  }
+  font-family: "ChosunGs";
+  position: absolute;
+  top: 20vh;
+  line-height: 1.3rem;
+  animation: ${MsgAni} 10s linear 0s infinite forwards;
+  white-space: nowrap;
+  color: #aaa;
+  &::before {
+    content: "개발자의 말 : ";
   }
 `;
 
